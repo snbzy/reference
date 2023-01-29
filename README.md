@@ -15,19 +15,19 @@ Quick Reference
 为开发人员分享快速参考备忘清单【速查表】。这是英文版 [Reference](https://github.com/Randy8080/reference) 的中文版本，目的是为了方便自己的技术栈查阅
 
 ## Java
-[Interview](./docs/interview.md)<!--rehype:style=background: rgb(225 73 41);-->
-[Java](./docs/java.md)<!--rehype:style=background: rgb(225 73 41);-->
-[JVM](./docs/jvm.md)<!--rehype:style=background: rgb(225 73 41);&class=tag&data-lang=Java-->
-[JUC](./docs/juc.md)<!--rehype:style=background: rgb(225 73 41);&class=tag&data-lang=Java-->
-[Spring](./docs/spring.md)<!--rehype:style=background: rgb(6 147 13);-->
-[Mybatis](./docs/mybatis.md)<!--rehype:style=background: rgb(211 55 49);-->
+[Interview](./docs/interview.md)<!--rehype:style=background: rgb(225 73 41);-->  
+[Java](./docs/java.md)<!--rehype:style=background: rgb(225 73 41);-->  
+[JVM](./docs/jvm.md)<!--rehype:style=background: rgb(225 73 41);&class=tag&data-lang=Java-->  
+[JUC](./docs/juc.md)<!--rehype:style=background: rgb(225 73 41);&class=tag&data-lang=Java-->  
+[Spring](./docs/spring.md)<!--rehype:style=background: rgb(6 147 13);-->  
+[Mybatis](./docs/mybatis.md)<!--rehype:style=background: rgb(211 55 49);-->  
 <!--rehype:class=home-card-->
 
 ## 容器
-[Docker](./docs/docker.md)<!--rehype:style=background: rgb(72 143 223);-->
-[Dockerfile](./docs/dockerfile.md)<!--rehype:style=background: rgb(0 72 153);&class=tag&data-lang=Docker-->
-[Kubernetes](./docs/kubernetes.md)<!--rehype:style=background: rgb(64 124 225);-->
-[Helm](./docs/helm.md)<!--rehype:style=background: rgb(72 143 223);&class=tag&data-lang=Kubernetes-->
+[Docker](./docs/docker.md)<!--rehype:style=background: rgb(72 143 223);-->  
+[Dockerfile](./docs/dockerfile.md)<!--rehype:style=background: rgb(0 72 153);&class=tag&data-lang=Docker-->  
+[Kubernetes](./docs/kubernetes.md)<!--rehype:style=background: rgb(64 124 225);-->  
+[Helm](./docs/helm.md)<!--rehype:style=background: rgb(72 143 223);&class=tag&data-lang=Kubernetes-->  
 <!--rehype:class=home-card-->
 
 ## 数据库

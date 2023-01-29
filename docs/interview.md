@@ -31,50 +31,48 @@ Question
 
 ### JVM
 
-1. 详细说明jvm内存模型
-2. JVM内存结构
-3. 各分区大小调节指令？
-4. 讲讲什么情况下会出现内存溢出，内存泄漏？
-5. JVM 年轻代到年老代的晋升过程的判断条件是什么呢？
-6. JVM 出现 fullGC 很频繁，怎么去线上排查问题？
-7. 类加载为什么采用双亲委派模式，什么场景打破了这个模式？
-8. 类的加载顺序？
-9. 类的实例化顺序
-10. JVM垃圾回收机制，何时触发MinorGC等操作
-11. hotspot虚拟机新生代回收算法（复制算法）
-12. 老年代回收算法？
-13. 何时触发FullGC？
-14. JVM 中一次完整的 GC 流程（从 ygc 到 fgc）是怎样的
-15. 各种回收器，各自优缺点，重点CMS. G1? serial new serial old,parollow
-16. 判断对象是否可以回收？
-17. 各种回收算法
-18. OOM的七种原因及解决？
+1. 详细说明jvm内存结构和内存模型
+2. 各分区大小调节指令？
+3. 讲讲什么情况下会出现内存溢出，内存泄漏？
+4. JVM 年轻代到年老代的晋升过程的判断条件是什么呢？
+5. JVM 出现 fullGC 很频繁，怎么去线上排查问题？
+6. 类加载为什么采用双亲委派模式，什么场景打破了这个模式？
+7. 类的加载顺序？
+8. 类的实例化顺序
+9. JVM垃圾回收机制，何时触发MinorGC等操作
+10. hotspot虚拟机新生代回收算法（复制算法）
+11. 老年代回收算法？
+12. 何时触发FullGC？
+13. JVM 中一次完整的 GC 流程（从 ygc 到 fgc）是怎样的
+14. 各种回收器，各自优缺点，重点CMS. G1? serial new serial old,parollow
+15. 判断对象是否可以回收？
+16. 各种回收算法
+17. OOM的七种原因及解决？
 
 ### JUC
 
 1. synchronized 的实现原理以及锁优化？
 2. volatile 的实现原理？
 3. Java 的信号灯？
-4. synchronized 在静态方法和普通方法的区别？
-5. synchronized修饰代码块和普通方法的区别？
-6. 怎么实现所有线程在等待某个事件的发生才会去执行？
-7. CAS？CAS 有什么缺陷，如何解决？
-8. synchronized 和 lock 有什么区别？
-9. Hashtable 是怎么加锁的 ？
-10. AQS
-11. [如何检测死锁？怎么预防死锁？](juc.html#如何检查死锁)
-12. 如何保证多线程下 i++ 结果正确？
-13. 线程池的种类，区别和使用场景？
-14. 分析线程池的实现原理和线程的调度过程？
-15. 线程池如何调优，最大数目如何确认？
-16. ExecutorService中execute和submit方法的区别？
-17. ThreadLocal原理，用的时候需要注意什么？
-18. [CountDownLatch 和 CyclicBarrier 的用法，以及区别?](juc.html#countdownlatch和cyclicbarrier)
-19. LockSupport工具
-20. Condition接口及其实现原理
-21. [Fork/Join框架的理解](juc.html#forkjoin框架的理解)
-22. 分段锁的原理,锁力度减小的思考
-23. 八种阻塞队列以及各个阻塞队列的特性
+4. synchronized 用法及区别？
+5. 怎么实现所有线程在等待某个事件的发生才会去执行？
+6. CAS？CAS 有什么缺陷，如何解决？
+7. synchronized 和 lock 有什么区别？
+8. Hashtable 是怎么加锁的 ？
+9. AQS
+10. [如何检测死锁？怎么预防死锁？](juc.html#如何检查死锁)
+11. 如何保证多线程下 i++ 结果正确？
+12. 线程池的种类，区别和使用场景？
+13. 分析线程池的实现原理和线程的调度过程？
+14. 线程池如何调优，最大数目如何确认？
+15. ExecutorService中execute和submit方法的区别？
+16. ThreadLocal原理，用的时候需要注意什么？
+17. [CountDownLatch 和 CyclicBarrier 的用法，以及区别?](juc.html#countdownlatch和cyclicbarrier)
+18. LockSupport工具
+19. Condition接口及其实现原理
+20. [Fork/Join框架的理解](juc.html#forkjoin框架的理解)
+21. 分段锁的原理,锁力度减小的思考
+22. 八种阻塞队列以及各个阻塞队列的特性
 
 ### Spring
 
