@@ -9,10 +9,22 @@ JVM 备忘清单
 
 ### JVM内存结构
 <!--rehype:wrap-class=col-span-2-->
-![eee](https://img-blog.csdnimg.cn/fa88ead4fed448c8b1d30be1017580c2.png)
+<img src="https://s2.loli.net/2023/01/29/4dHSmFVUnA1cMQk.png" width = 100%  alt="内存结构"/>
+
+
+### JVM内存模型
+<img src="https://s2.loli.net/2023/01/29/INzhfAp4Sx7Cwi9.png" width = 100%  alt="内存模型"/>
+
+
+### JVM 年轻代到年老代的晋升过程
+<!--rehype:wrap-class=col-span-2-->
+- 部分对象会在From和To区域中复制来复制去,如此交换15次(由JVM参数MaxTenuringThreshold决定,这个参数默认是15),最终如果还是存活,就存入到老年代。
+- 如果对象的大小大于Eden的二分之一会直接分配在old，如果old也分配不下，会做一次majorGC，如果小于eden的一半但是没有足够的空间，就进行minorgc也就是新生代GC。
+- minor gc后，survivor仍然放不下，则放到老年代
+- 动态年龄判断 ，大于等于某个年龄的对象超过了survivor空间一半 ，大于等于某个年龄的对象直接进入老年代
 
 ### OOM的七种原因及解决
-<!--rehype:wrap-class=row-span-4-->
+<!--rehype:wrap-class=row-span-3-->
 - 1.堆内存不足：java.lang.OutOfMemoryError: Java heap space
 
 原因：
@@ -48,17 +60,30 @@ JVM 备忘清单
 - 6.分配超大数组：java.lang.OutOfMemoryError: Requested array size exceeds VM limit
 - 7.本地方法溢出：java.lang.OutOfMemoryError: stack_trace_with_native_method
 
-### JVM 年轻代到年老代的晋升过程
-<!--rehype:wrap-class=col-span-2-->
-- 部分对象会在From和To区域中复制来复制去,如此交换15次(由JVM参数MaxTenuringThreshold决定,这个参数默认是15),最终如果还是存活,就存入到老年代。
-- 如果对象的大小大于Eden的二分之一会直接分配在old，如果old也分配不下，会做一次majorGC，如果小于eden的一半但是没有足够的空间，就进行minorgc也就是新生代GC。
-- minor gc后，survivor仍然放不下，则放到老年代
-- 动态年龄判断 ，大于等于某个年龄的对象超过了survivor空间一半 ，大于等于某个年龄的对象直接进入老年代
+
 
 ### JVM中创建对象完整流程
 <!--rehype:wrap-class=col-span-2-->
-![在这里插入图片描述](https://img-blog.csdnimg.cn/5762658fa08a483d8848f02f861cc77e.png)
+<img src="https://img-blog.csdnimg.cn/5762658fa08a483d8848f02f861cc77e.png" width = 100%  alt="创建对象完整流程"/>
 
 ### 垃圾收集器
+<img src="https://img-blog.csdnimg.cn/f3dd0092ff0c4d7d832d818553dc7a50.png" width = 100%  alt="垃圾收集器"/>
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/f3dd0092ff0c4d7d832d818553dc7a50.png)
+
+
+### JVM内存参数调整
+<!--rehype:wrap-class=col-span-2-->
+:-|:-|:-
+:-|:-|:-
+参数 | 说明| 示例
+`-Xmx` |	设置最大堆大小|	-Xmx3550m，设置JVM最大可用内存为3550 MB
+`-Xms` |	设置JVM初始内存|	-Xms3550m，设置JVM初始内存为3550 MB。此值建议与-Xmx相同，避免每次垃圾回收完成后JVM重新分配内存。
+`-Xmn` |	设置年轻代大小|	-Xmn2g，设置年轻代大小为2 GB。整个JVM内存大小=年轻代大小+年老代大小+持久代大小。持久代一般固定大小为64 MB，所以增大年轻代后，将会减小年老代大小。此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。
+`-Xss` |	设置线程的栈大小|	-Xss128k，设置每个线程的栈大小为128 KB。
+`-XX:NewRatio=n` |	设置年轻代和年老代的比值|	-XX:NewRatio=4，设置年轻代（包括Eden和两个Survivor区）与年老代的比值（除去持久代）。如果设置为4，那么年轻代与年老代所占比值为1:4，年轻代占整个堆栈的1/5。
+`-XX:SurvivorRatio=n`	| 年轻代中Eden区与两个Survivor区的比值|	-XX:SurvivorRatio=4，设置年轻代中Eden区与Survivor区的大小比值。如果设置为4，那么两个Survivor区与一个Eden区的比值为2:4，一个Survivor区占整个年轻代的1/6。
+`-XX:MaxPermSize=n`	| 设置持久代大小|	-XX:MaxPermSize=16m，设置持久代大小为16 MB。
+`-XX:MaxTenuringThreshold=n`	| 设置垃圾最大年龄|	-XX:MaxTenuringThreshold=0，设置垃圾最大年龄。
+`-XX:+UseParallelGC`	|选择垃圾收集器为并行收集器。|	-Xmx3800m -Xms3800m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:ParallelGCThreads=20，-XX:+UseParallelGC此配置仅对年轻代有效，即在示例配置下，年轻代使用并发收集，而年老代仍旧使用串行收集。
+<!--rehype:className=code-nowrap--> 
+> 参考资料：https://help.aliyun.com/document_detail/148851.html
