@@ -1,19 +1,13 @@
 RabbitMQ 备忘清单
 ===
 
-这是 [Docker](https://docs.docker.com/get-started/) 的快速参考备忘单。 你可以在这里找到最常见的 Docker 命令。
+这是 [RabbitMQ](https://www.rabbitmq.com/documentation.html) 的快速参考备忘单。 你可以在这里找到最常见的 RabbitMQ 命令。
 
 入门
 ----
 <!--rehype:body-class=cols-2-->
 
-### 入门
 
-在后台创建和运行容器
-
-```shell
-$ docker run -d -p 80:80 docker/getting-started
-```
 
 问答
 ----
@@ -47,4 +41,4 @@ $ docker run -d -p 80:80 docker/getting-started
 另见
 ----
 
-- [Helm 官方入门教程](https://helm.sh/zh/docs/) _(helm.sh)_
+- [RabbitMQ 官网](https://www.rabbitmq.com/)
