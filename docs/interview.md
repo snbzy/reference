@@ -79,7 +79,7 @@ Question
 
 ### 数据库
 
-1. mysql分页有什么优化？
+1. [mysql分页有什么优化？](#mysql分页有什么优化)
 2. [mysql数据类型？](mysql.html#mysql-数据类型)
 3. [Blob 和 text 有什么区别？](#blob和text有什么区别)
 4. [索引分类？](#索引分类)
@@ -100,21 +100,21 @@ Question
 19. [mysql 中 int(20)和 char(20)以及 varchar(20)的 区别？](#int20与char20varchar20)
 20. [drop、delete 与 truncate 的区别](#deletetruncate与-drop-的区别)
 21. [MySQL 的复制原理以及流程](#主从复制原理)
-22. MySQL系统逻辑架构图
+22. [MySQL 的基础架构图](#mysql-的基础架构图)
 
 ### Spring
 
-1. BeanFactory 和 FactoryBean？
-2. BeanFactory 和 ApplicationContext？
-3. Spring IOC 的理解，其初始化过程？
-4. Spring Bean 的生命周期，如何被管理的？
-5. Spring 的不同事务传播行为有哪些
-6. spring 声明式事务原理，哪些场景会失效？
-7. Spring MVC 的工作原理？
-8. Spring 管理Bean的步骤？
-9. Spring AOP的理解？
-10. Springboot 自动配置原理
-11. springboot启动流程
+1. [Spring IOC 的理解，其初始化过程？](spring.html#springioc初始化过程)
+2. [Spring Bean 的生命周期，如何被管理的？](spring.html#bean生命周期)
+3. [BeanFactory、FactoryBean 和ApplicationContext？](spring.html#beanfactoryfactorybean和applicationcontext)
+4. [Spring循环依赖](spring.html#循环依赖)
+5. [Spring 声明式事务原理](spring.html#spring声明式事务)
+6. [Spring 的不同事务传播行为有哪些](spring.html#事务传播行为)
+7. [Spring 事务失效场景](spring.html#spring-事务失效场景)
+8. [Spring AOP实现原理？](spring.html#spring-aop实现原理)
+9. [Spring MVC 的工作原理？](spring.html#springmvc-的工作原理)
+10. [Springboot 自动配置原理](spring.html#springboot自动配置原理)
+11. [springboot启动流程](spring.html#springboot启动流程)
 
 ### Redis
 
@@ -132,6 +132,18 @@ Question
 12. [聊聊 Redis 事务机制](#聊聊-redis-事务机制)
 
 
+### 消息中间件
+
+1. [消息队列有哪些使用场景？](rabbitmq.html#消息队列有哪些使用场景)
+2. [RabbitMQ消息丢失的3种情况？](rabbitmq.html#rabbitmq消息丢失的3种情况)
+3. RabbitMQ消息持久化？
+4. RabbitMQ交换机类型和区别？
+5. 消息队列如何解决消息积压问题？
+6. 消息队列有可能发生重复消费，如何避免，如何做到幂等？
+7. 如何保证数据一致性，事务消息如何实现？
+8. 如何保证消息消费的顺序性？
+
+
 ### Mybatis
 
 1. Mybatis原理
@@ -145,17 +157,16 @@ Question
 2. 普通Hash和一致性Hash？
 3. 分布式锁实现原理及方式？
 
-### 消息中间件
-
-1. RabbitMQ重启消息为什么会丢失？
-2. RabbitMQ交换机类型和区别？
-3. 消息队列如何解决消息丢失问题？
-4. 消息队列有可能发生重复消费，如何避免，如何做到幂等？
-5. 如何处理消息队列的消息积压问题？
 
 MySQL
 ----
 <!--rehype:body-class=cols-3-->
+
+### mysql分页有什么优化
+- 使用自查询找出分页最小id再用limit
+- 使用between..and
+- 先找出id再使用in查询
+
 
 ### 索引分类
 
@@ -341,6 +352,9 @@ MVCC|支持 |不支持
 - 主数据库有个 bin-log 二进制文件，纪录了所有增删改 Sql 语句。（binlog 线程）
 - 从数据库把主数据库的 bin-log 文件的 sql 语句复制过来。（io 线程）
 - 从数据库的 relay-log 重做日志文件中再执行一次这些 sql 语句。（Sql 执行线程）
+
+### MySQL 的基础架构图
+<img src="https://s2.loli.net/2023/02/01/Y1P2cIxbGyphHgi.png" width="100%" alt=""/>
 
 Java
 ----
